@@ -1,0 +1,81 @@
+#box{
+    border:1px solid rgb(153, 0, 153);
+    padding: 2vh;
+  }
+
+.chatbox{
+  width: 40%;
+  border:1px solid rgb(255, 3, 255);
+  margin-left: 20%;
+  padding-bottom: 0;
+  padding-top: 1vh;
+}
+#chatbox1{
+  padding:0 10px;
+  overflow: scroll;
+  height: 70vh;
+}
+
+.btn{
+  width: 100%;
+  margin-top:2vh;
+  font-size: large;
+}
+
+@media (max-width:768px) {
+  #sidebox{
+    font-size: small;
+    padding: 10px;
+  }
+  .btn{
+    padding:0px;
+    font-size: small;
+  }
+  .chatbox{
+    width: 60%;
+    margin-left:0;
+  }
+  
+}
+
+::-webkit-scrollbar{
+  width: 0;
+}
+.right{
+  box-shadow: 0 2px 4px 0 rgba(44, 108, 180, 0.527),
+  0 6px 10px 0 rgba(44, 108, 180, 0.267);
+  background-color: rgb(225, 247, 238);
+  border-radius: 5px;
+  padding: 1vw;
+  font-family: Times;
+}
+.left{
+  box-shadow: 0 2px 4px 0 rgba(44, 108, 180, 0.527),
+  0 6px 10px 0 rgba(44, 108, 180, 0.267);
+  background-color: rgb(247, 225, 228);
+  border-radius: 5px;
+  padding: 1vw;
+  font-family: Times;
+}
+.chatbox input{
+  width: 100%;
+  padding: 2.5vh;
+  font-family: Times;
+}
+
+#sidebox{
+  float: right;
+  position: relative;
+  right:0vw;
+  margin-top: 10%;
+  padding:15px;
+  border: 1px solid green;
+  
+}
+
+#sentto{
+  text-align: center;
+  color: green;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-top: 4vh ;
+}
