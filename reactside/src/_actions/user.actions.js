@@ -22,6 +22,7 @@ function login(email, password, from) {
                 user => {
                     dispatch(success(user));
                     history.push(from);
+                    // window.location.reload();
                     
                 },
                 error => {

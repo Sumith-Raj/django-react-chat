@@ -1,5 +1,5 @@
-import { Fragment, useEffect } from 'react';
-import { Router, Route, Switch, Redirect} from 'react-router-dom';
+import { useEffect } from 'react';
+import {  unstable_HistoryRouter as HistoryRouter,Route, Routes, Navigate, Outlet} from 'react-router-dom';
 import { history } from './_helpers/history';
 import { alertActions } from './_actions/alert.action';
 import { LoginPage } from './LoginPage/LoginPage';
@@ -17,21 +17,26 @@ function App() {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
-    }, []);
+    }, [dispatch]);
 
     return (
             <div className="container">
                     {alert.message &&
                         <div className={`alert ${alert.type}`}>{alert.message}</div>
                     }
-                    <Router history={history}>
-                        <Switch>
-                            <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/login" component={LoginPage} />
-                            <Route path="/register" component={RegisterPage} />
-                            <Redirect from="*" to="/pagenotfound" />
-                        </Switch>
-                    </Router>
+                    <HistoryRouter history={history}>
+                        <Routes>
+                            <Route exact path="" element={
+                                <PrivateRoute redirectTo="/login" >
+                                    <Outlet />
+                                    <HomePage/>
+                                </PrivateRoute>
+                            } />
+                            <Route path="/login" element={<LoginPage/>} />
+                            <Route path="/register" element={<RegisterPage/>} />
+                            <Route path="*" element={<Navigate to="/" />} />
+                        </Routes>
+                    </HistoryRouter>
                 </div>
           
     );
@@ -60,9 +65,9 @@ export { App };
 //             }
 //             <Router history={history}>
 //               <Switch>
-//                 <PrivateRoute exact path="/" component={HomePage} />
-//                 <Route path="/login" component={LoginPage}/>
-//                 <Route path="/register" component={RegisterPage} />
+//                 <PrivateRoute exact path="/" element={HomePage} />
+//                 <Route path="/login" element={LoginPage}/>
+//                 <Route path="/register" element={RegisterPage} />
 //                 <Redirect from="*" to="/" />
 //               </Switch>
 //             </Router>

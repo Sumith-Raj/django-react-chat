@@ -20,7 +20,7 @@ function LoginPage() {
         dispatch(userActions.logout()); 
         localStorage.removeItem('replieduser')
         localStorage.removeItem("user1")
-    }, []);
+    }, [dispatch]);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -43,20 +43,20 @@ function LoginPage() {
             <h2>Login</h2>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group pt-2">
-                    <label class="form-label">Email</label>
+                    <label className="form-label">Email</label>
                     <input type="text" name="email" value={email} onChange={handleChange} className={'form-control' + (submitted && !email ? ' is-invalid' : '')} />
                     {submitted && !email &&
                         <div className="invalid-feedback">Email is required</div>
                     }
                 </div>
                 <div className="form-group pt-2">
-                    <label class="form-label">Password</label>
+                    <label className="form-label">Password</label>
                     <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
                     {submitted && !password &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
-                <div class="col mt-4">
+                <div className="col mt-4">
                     <button className="btn btn-primary">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
@@ -70,7 +70,7 @@ function LoginPage() {
 
 export { LoginPage };
 
-// class LoginPage extends React.Component {
+// className LoginPage extends React.Component {
 //     constructor(props) {
 //         super(props);
 

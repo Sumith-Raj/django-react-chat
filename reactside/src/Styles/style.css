@@ -79,3 +79,7 @@
   font-family:Georgia, 'Times New Roman', Times, serif;
   margin-top: 4vh ;
 }
+.small{
+  font-size: 6px;
+  margin: 0;
+}

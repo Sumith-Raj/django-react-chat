@@ -16,7 +16,7 @@ function RegisterPage() {
     // reset login status
     useEffect(() => {
         dispatch(userActions.logout());
-    }, []);
+    }, [dispatch]);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -37,21 +37,21 @@ function RegisterPage() {
             <h3>Register</h3>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group pt-2">
-                    <label class="form-label">Email</label>
+                    <label className="form-label">Email</label>
                     <input type="email" name="email" value={userinput.email} onChange={handleChange} className={'form-control' + (submitted && !userinput.email ? ' is-invalid' : '')} />
                     {submitted && !userinput.email &&
                         <div className="invalid-feedback">Email is required</div>
                     }
                 </div>
                 <div className="form-group pt-2">
-                    <label class="form-label">Username</label>
+                    <label className="form-label">Username</label>
                     <input type="text" name="username" value={userinput.username} onChange={handleChange} className={'form-control' + (submitted && !userinput.username ? ' is-invalid' : '')} />
                     {submitted && !userinput.username &&
                         <div className="invalid-feedback">Username is required</div>
                     }
                 </div>
                 <div className="form-group pt-2">
-                    <label class="form-label">Password</label>
+                    <label className="form-label">Password</label>
                     <input type="password" name="password" value={userinput.password} onChange={handleChange} className={'form-control' + (submitted && !userinput.password ? ' is-invalid' : '')} />
                     {submitted && !userinput.password &&
                         <div className="invalid-feedback">Password is required</div>
@@ -72,7 +72,7 @@ function RegisterPage() {
 export { RegisterPage };
 
 
-// class RegisterPage extends React.Component {
+// className RegisterPage extends React.Component {
 //     constructor(props) {
 //         super(props);
 

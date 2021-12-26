@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect, useState } from "react";
 import { userActions } from "../_actions/user.actions";
+import moment from 'moment';
 import "../Styles/style.css";
 
 function HomePage() {
@@ -53,7 +54,7 @@ function HomePage() {
           userActions.getUserChat(username, localStorage.getItem("replieduser"))
         );
     }, 1000);
-  }, []);
+  }, [dispatch,username]);
 
   return (
     <>
@@ -120,12 +121,12 @@ function HomePage() {
             <Fragment key={i}>
               {k?.senduser === username && (
                 <div style={{ display: "flex", justifyContent: "right" }}>
-                  <p className="right">{k?.message}</p>
+                  <p className="right">{k?.message}<pre className="small" style={{ textAlign:"right" }}>{moment(k?.timestamp).fromNow()}</pre></p>
                 </div>
               )}
               {k?.senduser !== username && (
                 <div style={{ display: "flex", justifyContent: "left" }}>
-                  <p className="left">{k?.message}</p>
+                  <p className="left">{k?.message}<pre className="small">{moment(k?.timestamp).fromNow()}</pre></p>
                 </div>
               )}
 
